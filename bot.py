@@ -17,6 +17,7 @@ def main():
     print(subs + "\n" + violetaviews)
     #api.update_status(subs + "\n" + violetaviews + "\n" + lverviews)
     #api.update_status(u'\U0001F600' + " emoji test")
+    
     for status in api.user_timeline():
         print(status.id)
 
