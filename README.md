@@ -5,6 +5,7 @@ Bot that keeps track of statistics of an artist.
  - youtube views
  - chart
  - twitter followers
+ - Vlive followers
  - spotify followers
  - album sales
  - more???
