@@ -1,7 +1,7 @@
 import tweepy
 from keys import *
 from youtubeData import *
-from datetime import datetime
+from datetime import *
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -19,15 +19,17 @@ def main():
 
     api = tweepy.API(auth)
     subs = getSubs(iZoneChannelID) + " subs for izone"
-    violetaviews = u'\U0001F48E' + "Violeta views: " + getViews(violetaVideoID)
+    viewCountVioleta = getViews(violetaVideoID)
+    violetaviews = u'\U0001F48E' + "Violeta views: " + viewCountVioleta
     lverviews = u'\U0001F339' + "La Vie en Rose views: " + getViews(lverID)
     print(subs + "\n" + violetaviews)
     #api.update_status(subs + "\n" + violetaviews + "\n" + lverviews)
     for status in api.user_timeline():
         print(status.id)
     data = open("data.txt", "a")
-    writeData(data,"violetaViews",[violetaviews])
-    data1, data2, data3, data4 = np.random.randn(4, 100)
+    writeData(data,"violetaViews",viewCountVioleta)
+    data1 = [date, (datetime.today() + timedelta(days=1)).strftime("%x")]
+    data2 = [1, 2]
     fig, ax = plt.subplots(1, 1)
     ax.set_facecolor("#3C3C3C")
     fig.set_facecolor("#C3B0DE")
@@ -41,6 +43,7 @@ def writeData(file, tag, data):
     file.write("*"+tag + "\n")
     file.write(date + "\n")
     file.write(time + "\n")
+    file.write(data + "\n")
     file.write("*end" + "\n")
 
 def createGraph(ax, x, y, param_dict):
