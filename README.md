@@ -1,5 +1,5 @@
 # TwitterBot
-beta version - https://twitter.com/IZONE__stats
+beta version - https://twitter.com/589Stats
 Bot that keeps track of statistics of an artist.
 ### Planned Features (in order of importance)
  - youtube views
